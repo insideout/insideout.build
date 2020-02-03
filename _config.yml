@@ -1,0 +1,24 @@
+title: Inside Out
+branch: master
+locale: "en-us"
+charset: utf-8
+
+
+# Use the following Jekyll plug-ins
+plugins:
+  - jekyll-redirect-from
+  - jekyll-relative-links # Convert relative links to md files to their rendered equivalents
+  - jemoji # Enable Emoji
+
+
+# Exclude these files from your production _site
+exclude:
+  - CNAME
+  - README.md
+  - Gemfile
+  - node_modules
+  - Gemfile.lock
+  - .cache
+  - .sass-cache
+
+theme: null
