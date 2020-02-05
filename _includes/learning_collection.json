@@ -56,7 +56,6 @@
             "heat": {{ item.heat | jsonify }},
             {% if item.type == "collection" -%}
             "topItems": [
-            {% assign items_count = 0 -%}
             {% if item.items -%}
                 {% assign child_items = "" | split: ',' -%}
                 {% for child_item_id in item.items -%}
@@ -69,9 +68,8 @@
             {% else -%}
                 {% assign child_items = site.learning | where_exp: "item", item.query -%}
             {% endif -%}
-            {% for child_item in child_items -%}
+            {% for child_item in child_items limit:4 -%}
                 {
-                    {% assign items_count = items_count | plus: 1 -%}
                     "path": {{ child_item.path | jsonify }},
                     "type": {{ child_item.type | jsonify }},
                     "title": {{ child_item.title | jsonify }},
@@ -96,10 +94,7 @@
                         {% endfor %}
                     ],
                     "topics": {{ child_item.topics | jsonify }}
-                }{% unless forloop.last or items_count > 4 -%},{% endunless %}
-                {%- if items_count > 4 -%}
-                    {% break -%}
-                {% endif -%}
+                }{% unless forloop.last -%},{% endunless %}
             {% endfor %}
             ],
             "size": {{ child_items | size }},
