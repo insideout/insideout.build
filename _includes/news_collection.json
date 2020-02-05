@@ -24,10 +24,10 @@
             "heat": {{ post.heat }},
             "sourceUrl": "{{ post.url | absolute_url }}",
             "webUrl": "{{ post.webUrl | absolute_url }}",
-            {% if post.ampUrl -%}
+            {% if post.ampWebUrl -%}
             "ampWebUrl": "{{ post.ampWebUrl | absolute_url }}",
             {% endif -%}
-            {% if post.cdnAmpUrl -%}
+            {% if post.cdnAmpWebUrl -%}
             "cdnAmpWebUrl": "{{ post.cdnAmpWebUrl | default: "" | absolute_url }}",
             {% endif -%}
             "excerpt": {{ post.excerpt | strip_html | normalize_whitespace | strip | jsonify }},
