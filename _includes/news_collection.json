@@ -21,7 +21,7 @@
             "path": {{ post.path | jsonify }},
             "title": {{ post.title | jsonify }},
             "type": {{ post.type | jsonify }},
-            "heat": {{ post.heat }},
+            "heat": {{ post.heat | default: 0 }},
             "sourceUrl": "{{ post.url | absolute_url }}",
             "webUrl": "{{ post.webUrl | absolute_url }}",
             {% if post.ampWebUrl -%}
