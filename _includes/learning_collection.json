@@ -42,7 +42,7 @@
             "type": {{ item.type | jsonify }},
             "sourceUrl": "{{ item.url | absolute_url }}",
             {% if item.type == "collection" -%}
-            "webUrl": "{{ site.webUrl }}{{ item.path | replace: '_learning/','/learning?id=' | replace: '.md','' }}",
+            "webUrl": "{{ site.webUrl }}{{ item.path | replace: '_learning/','/learning/' | replace: '.md','' }}",
             {% else -%}
             "webUrl": "{{ item.webUrl | absolute_url }}",
             {% endif -%}
