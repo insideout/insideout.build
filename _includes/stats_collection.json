@@ -37,6 +37,9 @@
             {% if forloop.last -%}
                 {% assign for_count = forloop.length -%}
             {% endif -%}
+            {% if item.provider.domain contains 'smartable.ai' -%}
+                {% continue -%}
+            {% endif -%}
             "path": {{ item.path | jsonify }},
             "title": {{ item.title | jsonify }},
             "type": {{ item.type | jsonify }},
