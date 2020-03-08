@@ -33,9 +33,6 @@
             {% assign resources = resources | sort: "heat" | reverse -%}
         {% endif -%}
         {% for item in resources limit:page_size offset:for_offset -%}
-        {% if item.provider.domain contains 'smartable.ai' -%}
-            {% continue -%}
-        {% endif -%}
         {
             {% if forloop.last -%}
                 {% assign for_count = forloop.length -%}
